@@ -1,0 +1,21 @@
+<table border="1">
+    
+    <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Sales Volume</th>
+    </thead>
+
+    <tbody>
+        @for (salesPerson of salesPersonList; track salesPerson.firstName) {
+            <tr>
+                <td>{{ salesPerson.firstName }}</td>
+                <td>{{ salesPerson.lastName }}</td>
+                <td>{{ salesPerson.email }}</td>
+                <td>{{ salesPerson.salesVolume }}</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
