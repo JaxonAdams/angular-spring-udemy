@@ -1,19 +1,25 @@
-<table border="1">
+<table class="table table-hover">
     
-    <thead>
+    <thead class="thead-dark">
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
         <th>Sales Volume</th>
+        <th>Met Quota?</th>
     </thead>
 
     <tbody>
-        @for (salesPerson of salesPersonList; track salesPerson.firstName) {
+        @for (salesPerson of salesPersonList; track salesPerson.email) {
             <tr>
                 <td>{{ salesPerson.firstName }}</td>
                 <td>{{ salesPerson.lastName }}</td>
                 <td>{{ salesPerson.email }}</td>
-                <td>{{ salesPerson.salesVolume }}</td>
+                <td>{{ salesPerson.salesVolume | currency:"USD" }}</td>
+                @if (salesPerson.salesVolume >= 60000) {
+                    <td>Yes</td>
+                } @else {
+                    <td>No</td>
+                }
             </tr>
         }
     </tbody>
